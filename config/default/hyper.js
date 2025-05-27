@@ -7,33 +7,35 @@ module.exports = {
         // choose either `'stable'` for receiving highly polished,
         // or `'canary'` for less polished but more frequent updates
         updateChannel: 'stable',
+        // Set window size
+        windowSize: [1200, 700],
         // default font size in pixels for all tabs
-        fontSize: 12,
+        fontSize: 16,
         // font family with optional fallbacks
-        fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+        fontFamily: 'Menlo, "Hack Nerd Font Mono", "FiraCode Nerd Font Mono", "FiraMono Nerd Font", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
         // default font weight: 'normal' or 'bold'
         fontWeight: 'normal',
         // font weight for bold characters: 'normal' or 'bold'
         fontWeightBold: 'bold',
         // line height as a relative unit
-        lineHeight: 1,
+        lineHeight: 1.2,
         // letter spacing as a relative unit
-        letterSpacing: 0,
+        letterSpacing: 2,
         // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-        cursorColor: 'rgba(248,28,229,0.8)',
+        cursorColor: 'rgba(66, 206, 241, 0.8)',
         // terminal text color under BLOCK cursor
         cursorAccentColor: '#000',
         // `'BEAM'` for |, `'UNDERLINE'` for _, `'BLOCK'` for █
-        cursorShape: 'BLOCK',
+        cursorShape: 'BEAM',
         // set to `true` (without backticks and without quotes) for blinking cursor
-        cursorBlink: false,
+        cursorBlink: true,
         // color of the text
         foregroundColor: '#fff',
         // terminal background color
         // opacity is only supported on macOS
         backgroundColor: '#000',
         // terminal selection color
-        selectionColor: 'rgba(248,28,229,0.3)',
+        selectionColor: 'rgba(126, 126, 126, 0.47)',
         // border color (window, tabs)
         borderColor: '#333',
         // custom CSS to embed in the main window
@@ -44,11 +46,11 @@ module.exports = {
         workingDirectory: '',
         // if you're using a Linux setup which show native menus, set to false
         // default: `true` on Linux, `true` on Windows, ignored on macOS
-        showHamburgerMenu: '',
+        showHamburgerMenu: 'true',
         // set to `false` (without backticks and without quotes) if you want to hide the minimize, maximize and close buttons
         // additionally, set to `'left'` if you want them on the left, like in Ubuntu
         // default: `true` (without backticks and without quotes) on Windows and Linux, ignored on macOS
-        showWindowControls: '',
+        showWindowControls: 'left',
         // custom padding (CSS format, i.e.: `top right bottom left`)
         padding: '12px 14px',
         // the full list. if you're going to provide the full color palette,
@@ -92,7 +94,7 @@ module.exports = {
         //
         // Cygwin
         // - Example: `C:\\cygwin64\\bin\\bash.exe`
-        shell: '',
+        shell: 'pwsh.exe',
         // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
         // by default `['--login']` will be used
         shellArgs: ['--login'],
@@ -101,7 +103,7 @@ module.exports = {
         // Supported Options:
         //  1. 'SOUND' -> Enables the bell as a sound
         //  2. false: turns off the bell
-        bell: 'SOUND',
+        bell: 'false',
         // An absolute file path to a sound file on the machine.
         // bellSoundURL: '/path/to/sound/file',
         // if `true` (without backticks and without quotes), selected text will automatically be copied to the clipboard
@@ -120,7 +122,7 @@ module.exports = {
         webGLRenderer: true,
         // keypress required for weblink activation: [ctrl|alt|meta|shift]
         // todo: does not pick up config changes automatically, need to restart terminal :/
-        webLinksActivationKey: '',
+        webLinksActivationKey: 'ctrl',
         // if `false` (without backticks and without quotes), Hyper will use ligatures provided by some fonts
         disableLigatures: true,
         // set to true to disable auto updates

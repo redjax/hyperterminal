@@ -12,12 +12,10 @@ $CWD = $PWD.Path
 ## Paths to config files in repository
 [string]$RepoConfigDir = (Join-Path -Path $CWD -ChildPath (Join-Path -Path "config" -ChildPath $Config))
 [string]$RepoHyperJsFile = (Join-Path -Path $RepoConfigDir -ChildPath "hyper.js")
-[string]$RepoHyperConfigJsonFile = (Join-Path -Path $RepoConfigDir -ChildPath "config.json")
 
 ## Paths to config files on host
 [string]$HyperConfigDir = "$env:APPDATA\Hyper"
 [string]$HyperJsFile = (Join-Path -Path $HyperConfigDir -ChildPath ".hyper.js")
-[string]$HyperConfigJsonFile = (Join-Path -Path $HyperConfigDir -ChildPath "config.json")
 
 ## Check if hyper terminal is installed
 if ( -Not ( Get-Command hyper -ErrorAction SilentlyContinue ) ) {
@@ -46,15 +44,6 @@ else {
     Write-Host "[Repository] Hyper app configuration file found at: $RepoHyperJsFile" -ForegroundColor Green
 }
 
-## Check that repo config.json file exists
-if ( -Not ( Test-Path -Path $RepoHyperConfigJsonFile ) ) {
-    Write-Warning "[Repository] Hyper configuration JSON file not found at expected path: $RepoHyperConfigJsonFile"
-    exit 1
-}
-else {
-    Write-Host "[Repository] Hyper configuration JSON file found at: $RepoHyperConfigJsonFile" -ForegroundColor Green
-}
-
 ## Check that host .hyper.js exists
 if ( -Not ( Test-Path -Path $HyperJsFile ) ) {
     Write-Warning "[Host] Hyper app configuration file not found at expected path: $HyperJsFile"
@@ -62,15 +51,6 @@ if ( -Not ( Test-Path -Path $HyperJsFile ) ) {
 }
 else {
     Write-Host "[Host] Hyper app configuration file found at: $HyperJsFile" -ForegroundColor Green
-}
-
-## Check that host config.json exists
-if ( -Not ( Test-Path -Path $HyperConfigJsonFile ) ) {
-    Write-Warning "[Host] Hyper configuration JSON file not found at expected path: $HyperConfigJsonFile"
-    exit 1
-}
-else {
-    Write-Host "[Host] Hyper configuration JSON file found at: $HyperConfigJsonFile" -ForegroundColor Green
 }
 
 function Test-IsAdmin {
@@ -191,9 +171,4 @@ $HyperAppConfigSymlinkCreated = (New-HyperConfigSymlink -Src $RepoHyperJsFile -D
 
 if ( -Not $HyperAppConfigSymlinkCreated ) {
     Write-Error "Error creating symlink from $RepoHyperJsFile to $HyperJsFile. Details: $($_.Exception.Message)"
-}
-
-$HyperJsonConfigSymlinkCreated = New-HyperConfigSymlink -Src $RepoHyperConfigJsonFile -Dst $HyperConfigJsonFile
-if ( -Not $HyperJsonConfigSymlinkCreated ) {
-    Write-Error "Error creating symlink from $RepoHyperConfigJsonFile to $HyperConfigJsonFile. Details: $($_.Exception.Message)"
 }
