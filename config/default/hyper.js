@@ -172,6 +172,25 @@ module.exports = {
         hyperlinks: {
             clickAction: 'ignore',
             defaultBrowser: false
+        },
+        // Hyper-visual config
+        visual: {
+            // is panel default opened
+            opened: true,
+            // panel's margin-top
+            top: '35px',
+            // panel's margin-bottom
+            bottom: '1px',
+            // hotkey to toggle panel (broken)
+            hotkey: 'Ctrl+G',
+            // setting of contexts
+            context: {
+                // setting for npm scripts
+                node: {
+                    // choose npm or yarn
+                    tool: 'npm',
+                },
+            }
         }
     },
     // a list of plugins to fetch and install from npm
@@ -200,7 +219,9 @@ module.exports = {
         // https://www.npmjs.com/package/hyper-savetext
         "hyper-savetext",
         // https://www.npmjs.com/package/hyperterm-tabs
-        "https://www.npmjs.com/package/hyperterm-tabs"
+        "https://www.npmjs.com/package/hyperterm-tabs",
+        // https://www.npmjs.com/package/hyper-visual
+        "https://www.npmjs.com/package/hyper-visual"
     ],
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
