@@ -132,6 +132,47 @@ module.exports = {
         // set to true to preserve working directory when creating splits or tabs
         preserveCWD: true,
         // for advanced config flags please refer to https://hyper.is/#cfg
+
+        // Plugin configs
+        // Hyperline config
+        hyperline: {
+            plugins: [
+                "hostname",
+                "ip",
+                "memory",
+                "cpu",
+                "network"
+            ]
+        },
+        // Visor config
+        visor: {
+            hotkey: 'CommandOrControl+Shift+Z',
+            // or left, right, bottom
+            position: 'top',
+            // Optional, defaults to half of viewable area for horizontal positions, 100% for vertical
+            width: 200,
+            // Optional, defaults to half of viewable area for vertical positions, 100% for horizontal
+            height: 900,
+        },
+        // Summon config
+        summon: {
+            hideDock: true,
+            hideOnBlur: true,
+            hotkey: 'Alt+Super+O',
+        },
+        // Hyper-search config
+        hyperSearchUI: {
+            inputBorderRadius: 2,
+            buttonBorderRadius: 2,
+            buttonMargin: 2,
+            prevButton: '←',
+            nextButton: '→'
+        },
+        // Hyper-links config
+        hyperlinks: {
+            clickAction: 'ignore',
+            defaultBrowser: false
+        }
     },
     // a list of plugins to fetch and install from npm
     // format: [@org/]project[#version]
@@ -139,7 +180,28 @@ module.exports = {
     //   `hyperpower`
     //   `@company/project`
     //   `project#1.0.1`
-    plugins: [],
+    plugins: [
+        // https://www.npmjs.com/package/hyperline
+        "hyperline",
+        // https://www.npmjs.com/package/hyper-visor
+        // "hyperterm-visor",
+        // https://www.npmjs.com/package/hyperterm-summon
+        // "hyperterm-summon",
+        // https://www.npmjs.com/package/hyperterm-safepaste
+        "hyperterm-safepaste",
+        // https://www.npmjs.com/package/hyperdocs
+        "hyperdocs",
+        // https://www.npmjs.com/packages/hyper-search
+        "hyper-search",
+        // https://www.npmjs.com/package/hyperduck
+        "hyperduck",
+        // https://www.npmjs.com/package/hyperlinks
+        "hyperlinks",
+        // https://www.npmjs.com/package/hyper-savetext
+        "hyper-savetext",
+        // https://www.npmjs.com/package/hyperterm-tabs
+        "https://www.npmjs.com/package/hyperterm-tabs"
+    ],
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
     // to load it and avoid it being `npm install`ed
